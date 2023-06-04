@@ -10,6 +10,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
+const errorHandler = (error, req, res, next) => {
+  console.error('An error occurred:', error);
+  res.status(500).json({ error: 'Internal Server Error' });
+};
+
+// Register error handling middleware
+app.use(errorHandler);
+
 // login 
 
 app.get("/", async (req, res) => {
