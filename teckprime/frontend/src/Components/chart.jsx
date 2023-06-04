@@ -9,6 +9,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 export const ChartPage = () => {
   const nav = useNavigate();
   const isSmallScreen = useBreakpointValue({ base: true, lg: false })
+  const barChartWidth = useBreakpointValue({ base: 350,md: 800 , lg: 800 });
   const [Data, setData] = useState("");
   const [startData, setstartData] = useState("");
   const [totalData, settotalData] = useState("");
@@ -163,9 +164,9 @@ export const ChartPage = () => {
 
 {/* chart grafh */}
 
-         <Box border={"1px solid red"} h="full"> 
+         <Box h="full"> 
           <Text fontSize={"20px"} fontWeight={"600"} p="30px" >Department wise - Total Vs Closed</Text>
-         <BarChart width={400} height={300} data={data} barCategoryGap="20%" barGap="5%">
+         <BarChart width={barChartWidth} height={300} data={data} barCategoryGap="20%" barGap="5%">
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="name" />
       <YAxis />

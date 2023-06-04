@@ -92,7 +92,7 @@ const Login = () => {
                   name="email"
                   onChange={handleChange}
                   type="email"
-                  placeholder="Phone number, Username, or email"
+                  placeholder="Email"
                   
                 />
                 {formErrors.email && (
