@@ -178,14 +178,14 @@ const handleQuery=((e)=>{
             </InputGroup>
           </Box>
 
-          <Box display={"flex"} w="200px" justifyContent={"space-evenly"} p="2">
-            <Box w="32vw" m="auto">
+          <Box display={"flex"} w={{base:"200px",md:"230px",lg:"300px"}} justifyContent={"space-evenly"} p="2">
+            <Box w="32vw" m="auto" ml={{lg:"50px"}}>
               <Text fontSize="1rem" color="gray">
                 Sort By :
               </Text>
             </Box>
 
-            <Select variant={"unstyled"} value={query} onChange={handleQuery} m="auto" ml=".5" border="none">
+            <Select variant={"unstyled"} value={query} onChange={handleQuery} m="auto" ml=".5"  border="none">
               <option value="Priority">Priority</option>
               <option value="Type">Type</option>
               <option value="Location">Location </option>
@@ -239,7 +239,7 @@ const handleQuery=((e)=>{
     }
   }).map((e) => (
                   <Tr>
-                    <Box w="200px" p="5px" display={"block"}>
+                    <Box w="200px" p="5px" >
                       <Text fontWeight={"600"}>{e.projectTheme}</Text>
                       <Text>{e.startDate} to {e.endDate}</Text>
                     </Box>
@@ -302,7 +302,7 @@ const handleQuery=((e)=>{
 
 {/* card for smallscreen */}
 { ! isSmalllist && (
-    <SimpleGrid columns={[1,1,1]} spacing={5}>
+    <SimpleGrid columns={[1,2]} spacing={5}>
         {Data &&
   Data.filter((value) => {
     if (inputdata === "") {
