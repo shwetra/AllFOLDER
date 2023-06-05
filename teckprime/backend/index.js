@@ -57,14 +57,19 @@ app.post('/project', async (req, res) => {
 // get all post list
 
 app.get('/projects', async (req, res) => {
+  const {query}=req.query
   try {
     const page = parseInt(req.query.page) || 1; 
     const limit = parseInt(req.query.limit) || 10;
     const skip = (page - 1) * limit;
+ if(query){
+  let querydata=await ProjectModel.find().sort({[query]:1}).skip(skip).limit(limit);
+  res.json(querydata)
+ }else{
     const projects = await ProjectModel.find()
       .skip(skip)
       .limit(limit);
-    res.json(projects);
+    res.json(projects);}
   } catch (error) {
     res.status(500).json({ error });
   }
