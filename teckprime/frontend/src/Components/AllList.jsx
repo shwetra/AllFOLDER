@@ -33,15 +33,16 @@ export const AllList = () => {
   const isSmalllist = useBreakpointValue({ base: false, md:false ,lg: true });
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage, setPerPage] = useState(6);
+  const [query,setQuery]=useState()
 
   useEffect(() => {
     fetchProjects();
-  }, [currentPage, perPage]);
+  }, [currentPage, perPage ,query]);
 
   async function fetchProjects() {
     try {
       const response = await fetch(
-        `https://techp.onrender.com/projects?page=${currentPage}&limit=${perPage}`
+        `https://techp.onrender.com/projects?query=${query}&page=${currentPage}&limit=${perPage}`
       );
       const data = await response.json();
       setData(data);
@@ -93,6 +94,10 @@ const handleStart=async(id)=>{
     
 }
 
+const handleQuery=((e)=>{
+  const {value}=e.target
+  setQuery(value)
+})
 
   return (
     <Box>
@@ -180,9 +185,9 @@ const handleStart=async(id)=>{
               </Text>
             </Box>
 
-            <Select variant={"unstyled"} m="auto" ml=".5" border="none">
+            <Select variant={"unstyled"} value={query} onChange={handleQuery} m="auto" ml=".5" border="none">
               <option value="Priority">Priority</option>
-              <option value="type">type</option>
+              <option value="Type">Type</option>
               <option value="Location">Location </option>
               <option value="Status">Status</option>
               <option value="Reason">Reason</option>
