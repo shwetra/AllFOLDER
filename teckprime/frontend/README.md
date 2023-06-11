@@ -6,7 +6,18 @@ Password= admin
 Deployed Link :  https://techprime.vercel.app/
 
 
+#Techstack
+# Frontend:
+React.js: A JavaScript library for building user interfaces.
+Redux: A state management library for managing the application's global state.
+Recharts: A charting library for creating interactive charts and graphs.
 
+# Backend:
+Node.js: A JavaScript runtime environment for executing JavaScript code on the server.
+Express.js: A web application framework for building APIs and server-side 
+applications.
+MongoDB: A NoSQL database for storing and retrieving data.
+Mongoose: An Object Data Modeling (ODM) library for MongoDB, providing a convenient way to interact with the database using JavaScript objects.
 
 
 
